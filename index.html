@@ -1,0 +1,240 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="EcoQuest helps you build greener habits through simple daily sustainability challenges in Pakistan.">
+  <title>EcoQuest | Small Actions, Greener Pakistan</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="navbar container" aria-label="Main navigation">
+      <a class="brand" href="#home"><span>🌿</span> EcoQuest</a>
+      <button class="menu-toggle" id="menuToggle" type="button"
+        aria-label="Toggle navigation" aria-expanded="false">☰</button>
+      <div class="nav-links" id="navLinks">
+        <a href="#home">Home</a>
+        <a href="#challenges">Challenges</a>
+        <a href="#progress">My Progress</a>
+        <a href="#tips">Eco Tips</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-content">
+        <span class="eyebrow">A GREENER FUTURE STARTS WITH YOU</span>
+        <h1>Small Actions.<br><span>Greener Pakistan.</span></h1>
+        <p>Make a positive difference with simple daily eco-friendly challenges. Every small action counts!</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#challenges">Explore Challenges →</a>
+          <a class="btn btn-outline" href="#progress">View My Progress</a>
+        </div>
+        <p class="hero-note">🌱 Build better habits, one day at a time.</p>
+        <div class="hero-illustration" aria-hidden="true">
+          <span class="sun">☀️</span>
+          <span class="plant plant-one">🌱</span>
+          <span class="plant plant-two">🌳</span>
+          <span class="plant plant-three">🌿</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="stats-section container" aria-label="Your statistics">
+      <article class="stat-card">
+        <span class="stat-icon">✅</span>
+        <p>Challenges Completed</p>
+        <h2 id="completedCount">0</h2>
+      </article>
+      <article class="stat-card">
+        <span class="stat-icon">⭐</span>
+        <p>Eco Points</p>
+        <h2 id="pointsCount">0</h2>
+      </article>
+      <article class="stat-card">
+        <span class="stat-icon">🏆</span>
+        <p>Badges Earned</p>
+        <h2 id="badgesCount">0</h2>
+      </article>
+    </section>
+
+    <section class="section container" id="challenges">
+      <div class="section-heading">
+        <span class="eyebrow">TAKE THE FIRST STEP</span>
+        <h2>Choose Your Eco Challenge</h2>
+        <p>Explore practical activities, complete them, and collect eco points. You can also create your own challenges below.</p>
+      </div>
+
+      <div class="filter-panel">
+        <div class="filter-field">
+          <label for="searchInput">Search challenges</label>
+          <input id="searchInput" type="search" placeholder="Try “water” or “plant”">
+        </div>
+        <div class="filter-field">
+          <label for="categoryFilter">Filter by category</label>
+          <select id="categoryFilter">
+            <option value="all">All Categories</option>
+            <option value="water">Water Saving</option>
+            <option value="energy">Energy Saving</option>
+            <option value="waste">Waste Reduction</option>
+            <option value="nature">Nature Protection</option>
+            <option value="community">Community</option>
+          </select>
+        </div>
+        <button class="btn btn-light" id="resetFilters" type="button">Reset Filters</button>
+      </div>
+
+      <div class="results-row">
+        <p id="challengeCount">15 challenges</p>
+        <p>🌍 Every action matters</p>
+      </div>
+
+      <div class="challenge-grid" id="challengeGrid"></div>
+      <div class="empty-state hidden" id="emptyState">
+        <span>🔎</span>
+        <h3>No challenges found</h3>
+        <p>Try another search or choose a different category.</p>
+        <button class="btn btn-primary" id="emptyResetButton" type="button">Show All Challenges</button>
+      </div>
+    </section>
+
+    <section class="section custom-section">
+      <div class="container custom-layout">
+        <div class="custom-copy">
+          <span class="eyebrow">MAKE IT PERSONAL</span>
+          <h2>Create Your Own Challenge</h2>
+          <p>Have a great sustainability idea? Add it to your personal challenge list.</p>
+          <div class="feature-note">💚 Your ideas can inspire positive change.</div>
+        </div>
+
+        <form id="challengeForm" class="challenge-form">
+          <h3 id="formHeading">Add a New Challenge</h3>
+
+          <div class="form-field">
+            <label for="challengeTitle">Challenge title *</label>
+            <input id="challengeTitle" name="title" type="text"
+              minlength="3" maxlength="70" placeholder="e.g. Reuse a shopping bag" required>
+          </div>
+
+          <div class="form-field">
+            <label for="challengeCategory">Category *</label>
+            <select id="challengeCategory" name="category" required>
+              <option value="water">Water Saving</option>
+              <option value="energy">Energy Saving</option>
+              <option value="waste">Waste Reduction</option>
+              <option value="nature">Nature Protection</option>
+              <option value="community">Community</option>
+            </select>
+          </div>
+
+          <div class="form-field">
+            <label for="challengeDescription">Description *</label>
+            <textarea id="challengeDescription" name="description"
+              minlength="5" maxlength="250" rows="3"
+              placeholder="Describe your eco-friendly activity..." required></textarea>
+          </div>
+
+          <div class="form-row">
+            <div class="form-field">
+              <label for="challengePoints">Points *</label>
+              <select id="challengePoints" name="points">
+                <option value="5">5 points — Easy</option>
+                <option value="10" selected>10 points — Normal</option>
+                <option value="15">15 points — Helpful</option>
+                <option value="20">20 points — Big impact</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="challengeIcon">Emoji</label>
+              <input id="challengeIcon" name="icon" type="text"
+                maxlength="8" placeholder="🌱">
+            </div>
+          </div>
+
+          <p id="formMessage" class="form-message" aria-live="polite"></p>
+          <div class="form-actions">
+            <button class="btn btn-primary" id="saveChallengeButton" type="submit">Add Challenge</button>
+            <button class="btn btn-light hidden" id="cancelEditButton" type="button">Cancel Editing</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <section class="section container progress-section" id="progress">
+      <div class="section-heading">
+        <span class="eyebrow">YOUR GREEN JOURNEY</span>
+        <h2>Track Your Progress</h2>
+        <p>Every completed challenge brings you one step closer to greener habits.</p>
+      </div>
+
+      <div class="progress-card">
+        <div class="progress-top">
+          <div>
+            <span class="eyebrow">YOUR ECO LEVEL</span>
+            <h3 id="levelName">Eco Beginner</h3>
+            <p id="levelDescription">Start completing challenges to earn points.</p>
+          </div>
+          <div class="level-icon">🌿</div>
+        </div>
+        <div class="progress-track" id="levelProgressBar" role="progressbar"
+          aria-label="Eco level progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+          <div class="progress-fill" id="levelProgressFill"></div>
+        </div>
+        <div class="progress-bottom">
+          <span id="progressText">0 challenges completed</span>
+          <span id="todayDate"></span>
+        </div>
+      </div>
+
+      <div class="achievement-heading">
+        <h3>Your Achievements</h3>
+        <p>Unlock badges as you complete more challenges.</p>
+      </div>
+      <div class="badges-grid" id="badgesGrid"></div>
+
+      <div class="reset-row">
+        <p>Your progress is saved in this browser.</p>
+        <button class="btn btn-danger-outline" id="resetProgressButton" type="button">Reset My Progress</button>
+      </div>
+    </section>
+
+    <section class="section tips-section" id="tips">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">LIVE A LITTLE GREENER</span>
+          <h2>Simple Eco Tips</h2>
+          <p>Small, practical habits can help protect our environment.</p>
+        </div>
+        <div class="tips-grid">
+          <article class="tip-card"><span>💧</span><h3>Save Water</h3><p>Turn off the tap while brushing and report leaking taps.</p></article>
+          <article class="tip-card"><span>💡</span><h3>Save Energy</h3><p>Switch off lights and fans when they are not needed.</p></article>
+          <article class="tip-card"><span>♻️</span><h3>Reduce Waste</h3><p>Reuse bags and bottles, and sort recyclable materials.</p></article>
+          <article class="tip-card"><span>🌳</span><h3>Protect Nature</h3><p>Care for plants and keep your local surroundings clean.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="final-cta">
+      <div class="container">
+        <span>OUR PLANET, OUR RESPONSIBILITY</span>
+        <h2>Let's Make Pakistan Greener!</h2>
+        <p>Your everyday choices can inspire a healthier, cleaner future.</p>
+        <a href="#challenges" class="btn btn-white">Start a Challenge →</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <div><a class="brand footer-brand" href="#home">🌿 EcoQuest</a><p>Small actions, greener Pakistan.</p></div>
+      <p>© <span id="currentYear">2026</span> EcoQuest. Built with care for our planet.</p>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
