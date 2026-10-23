@@ -64,8 +64,8 @@ No additional libraries or frameworks are required.
 
 ## 🔗 Project Links
 
-- **GitHub Repository:** [Insert your repository URL here]
-- **Live Website:** [Insert your GitHub Pages URL here]
+- **GitHub Repository:**(https://github.com/alisha104/EcoQuest)
+- **Live Website:** (https://alisha104.github.io/EcoQuest/)
 
 Replace these placeholders with your actual links before submission.
 
